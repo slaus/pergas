@@ -1,0 +1,17 @@
+// Подавляем предупреждения Bootstrap
+@use 'sass:meta';
+@use 'sass:math';
+@use 'sass:color';
+
+// Bootstrap 5
+@use "bootstrap/scss/bootstrap";
+
+// Свои стили
+@use "blocks/var";
+@use "blocks/default";
+@use "blocks/header";
+@use "blocks/slider";
+@use "blocks/subheader";
+@use "blocks/navbar";
+@use "blocks/main";
+@use "blocks/footer";

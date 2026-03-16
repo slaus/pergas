@@ -1,0 +1,4 @@
+{
+  "silenceDeprecations": ["legacy-js-api", "import"],
+  "quietDeps": true
+}
