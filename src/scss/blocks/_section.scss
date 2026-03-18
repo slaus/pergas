@@ -1,0 +1,16 @@
+.section {
+    padding: clamp(25px, 4vw, 40px) 0 0;
+
+    &__text {
+        color      : var(--dark-gray);
+        font-size  : clamp(22px, calc(14px + 3vw), 44px);
+        line-height: clamp(22px, calc(14px + 3vw), 44px);
+        font-weight: 300;
+
+        strong,
+        b {
+            font-weight: 300;
+            color      : var(--black);
+        }
+    }
+}

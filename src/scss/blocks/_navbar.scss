@@ -109,7 +109,8 @@
     }
 
     &__title {
-        opacity: .65;
+        opacity: .55;
+        font-weight: 400;
     }
 
     &__link {
@@ -126,6 +127,15 @@
         }
     }
 
+    &__contact {
+        color: var(--black);
+        font-weight: 400;
+
+        &:hover {
+            color: var(--light-blue);
+        }
+    }
+
     & .nav-link {
         font-weight: 300;
         font-size  : clamp(17px, 2vw, 22px);
@@ -136,7 +146,7 @@
         position   : relative;
 
         &.active {
-            // color: var(--white);
+            color: var(--light-blue);
             // background: var(--blue);
 
             &:after {
@@ -145,22 +155,22 @@
                 bottom    : 0;
                 left      : 0;
                 display   : block;
-                background: var(--blue);
+                background: var(--light-blue);
                 width     : 100%;
-                height    : 5px;
+                height    : 3px;
 
                 @media screen and (max-width: 991px) {
-                    height: 4px;
+                    height: 2px;
                 }
 
                 @media screen and (max-width: 576px) {
-                    height: 3px;
+                    height: 1px;
                 }
             }
         }
 
         &:hover:not(.active) {
-            color: var(--blue);
+            color: var(--light-blue);
         }
     }
 }

@@ -18,6 +18,11 @@
     color: #557597;
   }
 
+  &__text {
+    width: 100%;
+    max-width: 1000px;
+  }
+
   &__link {
     color     : var(--white);
     position  : relative;

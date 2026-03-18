@@ -1,0 +1,104 @@
+.text-content {
+    &.grid-layout {
+        display       : flex;
+        flex-direction: column;
+        gap           : clamp(2rem, 5vw, 5rem);
+        margin        : 2rem 0;
+    }
+}
+
+.grid-block {
+    display              : grid;
+    grid-template-columns: 1fr 2fr;
+    gap                  : clamp(1.5rem, 3vw, 3rem);
+    align-items          : center;
+
+    &.reverse {
+        direction: rtl;
+
+        .grid-text {
+            direction: ltr;
+        }
+    }
+
+    @media screen and (max-width: 1199px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap                  : 1.5rem;
+
+        &.reverse {
+            direction: ltr;
+        }
+    }
+}
+
+.grid-text {
+    p {
+        margin-bottom: 1.5rem;
+        font-size    : clamp(14px, 2vw, 18px);
+        line-height  : calc(clamp(14px, 2vw, 18px) * 1.5);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.grid-image {
+    position       : relative;
+    overflow       : hidden;
+    border-radius  : 12px;
+    box-shadow     : 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition     : all 0.3s ease;
+    // aspect-ratio: 16/9;
+    max-height     : 60vh;
+
+    @media screen and (max-width: 1199px) {
+        max-height: unset;
+    }
+
+    @media screen and (max-width: 767px) {
+        aspect-ratio: 16/9;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+
+        img {
+            transform: scale(1.05);
+        }
+    }
+
+    img {
+        width     : 100%;
+        height    : 100%;
+        object-fit: cover;
+        display   : block;
+        transition: transform 0.5s ease;
+    }
+}
+
+.grid-block {
+    counter-increment: block-counter;
+    position         : relative;
+
+    &::before {
+        content    : counter(block-counter, decimal-leading-zero);
+        position   : absolute;
+        top        : -10px;
+        left       : -10px;
+        font-size  : 6rem;
+        font-weight: 700;
+        color      : var(--gray);
+        z-index    : -1;
+        line-height: 1;
+    }
+
+    &.reverse::before {
+        left : auto;
+        right: -10px;
+    }
+}

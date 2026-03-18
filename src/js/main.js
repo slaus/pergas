@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    /** Mobile menu */
     const navbarMenu = document.getElementById('navbar__menu');
     const navbarCollapse = document.getElementById('navbar');
     const body = document.body;
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /** To top and Call buttons */
     const scrollTopButton = document.getElementById('scroll-top');
     const callButton = document.getElementById('call');
 
@@ -113,5 +115,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', toggleButtons);
 
-    document.addEventListener('DOMContentLoaded', toggleButtons);
+    toggleButtons();
+
+    /** Swiper Slider */
+    try {
+        const swiper = new Swiper(".swiper-slider", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            speed: 800,
+
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+                pageUpDown: true,
+            },
+
+            navigation: {
+                nextEl: ".swiper-next",
+                prevEl: ".swiper-prev",
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 12,
+                    centeredSlides: false
+                },
+                768: {
+                    slidesPerView: "auto",
+                    spaceBetween: 20,
+                    centeredSlides: true
+                }
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+
+
+
+    const contentDiv = document.querySelector('.text-content');
+    if (!contentDiv) return;
+
+    const originalHTML = contentDiv.innerHTML;
+
+    const imgRegex = /<img[^>]+>/g;
+    const images = originalHTML.match(imgRegex) || [];
+
+    const textContent = originalHTML.replace(imgRegex, '').trim();
+
+    const paragraphs = textContent.split('</p>')
+        .filter(p => p.trim())
+        .map(p => p + '</p>');
+
+    contentDiv.innerHTML = '';
+    contentDiv.className = 'text-content grid-layout';
+
+    images.forEach((img, index) => {
+        const gridBlock = document.createElement('div');
+        gridBlock.className = `grid-block ${index % 2 === 0 ? 'normal' : 'reverse'}`;
+
+        const startIdx = Math.floor((index * paragraphs.length) / images.length);
+        const endIdx = Math.floor(((index + 1) * paragraphs.length) / images.length);
+        const blockParagraphs = paragraphs.slice(startIdx, endIdx).join('');
+
+        gridBlock.innerHTML = `
+      <div class="grid-text">
+        ${blockParagraphs || '<p>Текст временно отсутствует</p>'}
+      </div>
+      <div class="grid-image">
+        ${img}
+      </div>
+    `;
+
+        contentDiv.appendChild(gridBlock);
+    });
 });
