@@ -1,7 +1,7 @@
 .slider {
 
   &__wrap {
-    background   : var(--dark-blue);
+    // background   : var(--dark-blue);
     border-radius: var(--radius);
     margin       : calc(var(--bs-gutter-x) * 0.5) auto;
     padding      : 0;
@@ -10,10 +10,11 @@
     position     : relative;
     overflow     : hidden;
     gap          : 1px;
+    transition: all .3s ease-in-out .3s;
   }
-
+  
   &__inner {
-    background: var(--blue);
+    // background: var(--blue);
     padding   : clamp(30px, 4vw, 50px) clamp(20px, 4vw, 35px);
     color     : var(--white);
     height    : 100%;
@@ -44,6 +45,7 @@
       &:after {
         background: var(--black);
         opacity: .35;
+        transition: all .3s ease-in-out .3s;
       }
 
       .slider__video {
@@ -66,7 +68,8 @@
       top       : 0;
       width     : 100%;
       height    : 100%;
-      background: var(--blue);
+      // background: var(--blue);
+      background: linear-gradient(to bottom, #082d535d 0%, #082d53b2 50%, var(--blue) 100%);
       display   : block;
       opacity   : .85;
       transition: all .3s ease-in-out .3s;

@@ -159,43 +159,4 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (error) {
         console.error(error);
     }
-
-
-
-    const contentDiv = document.querySelector('.text-content');
-    if (!contentDiv) return;
-
-    const originalHTML = contentDiv.innerHTML;
-
-    const imgRegex = /<img[^>]+>/g;
-    const images = originalHTML.match(imgRegex) || [];
-
-    const textContent = originalHTML.replace(imgRegex, '').trim();
-
-    const paragraphs = textContent.split('</p>')
-        .filter(p => p.trim())
-        .map(p => p + '</p>');
-
-    contentDiv.innerHTML = '';
-    contentDiv.className = 'text-content grid-layout';
-
-    images.forEach((img, index) => {
-        const gridBlock = document.createElement('div');
-        gridBlock.className = `grid-block ${index % 2 === 0 ? 'normal' : 'reverse'}`;
-
-        const startIdx = Math.floor((index * paragraphs.length) / images.length);
-        const endIdx = Math.floor(((index + 1) * paragraphs.length) / images.length);
-        const blockParagraphs = paragraphs.slice(startIdx, endIdx).join('');
-
-        gridBlock.innerHTML = `
-      <div class="grid-text">
-        ${blockParagraphs || '<p>Текст временно отсутствует</p>'}
-      </div>
-      <div class="grid-image">
-        ${img}
-      </div>
-    `;
-
-        contentDiv.appendChild(gridBlock);
-    });
 });
