@@ -6,6 +6,8 @@
         background   : var(--gray);
         border-radius: var(--radius);
         color        : var(--black);
+        // white-space  : nowrap;
+        flex-wrap    : wrap;
 
         a {
             color: var(--black);

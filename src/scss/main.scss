@@ -17,5 +17,9 @@
 @use "blocks/main";
 @use "blocks/section";
 @use "blocks/content";
+@use "blocks/blog";
+@use "blocks/teaser";
+@use "blocks/article";
+@use "blocks/pagination";
 @use "blocks/swiper";
 @use "blocks/footer";

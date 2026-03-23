@@ -1,5 +1,5 @@
 .swiper {
-    padding      : clamp(30px, 4vw, 50px) calc(1.5rem * 0.5);
+    padding : clamp(30px, 4vw, 50px) calc(1.5rem * 0.5);
     overflow: hidden;
 
     &-nav {
@@ -9,9 +9,9 @@
 
     &-index {
         position: absolute;
-        left: clamp(30px, 4vw, 50px);
-        top: clamp(30px, 4vw, 50px);
-        color: var(--white);
+        left    : clamp(30px, 4vw, 50px);
+        top     : clamp(30px, 4vw, 50px);
+        color   : var(--white);
     }
 
     &-prev,
@@ -40,7 +40,7 @@
     }
 
     &-next::after {
-        content  : "🡢";
+        content: "🡢";
     }
 
     &-slider {
@@ -53,21 +53,17 @@
         overflow     : hidden;
         transition   : transform .4s, opacity .4s;
         opacity      : .6;
+        aspect-ratio : 16/9;
+
+        @media screen and (max-width: 1199px) {
+            aspect-ratio: 4/3;
+        }
 
         img {
             width     : 100%;
-            height    : 100vh;
-            max-height: 650px;
+            height    : 100%;
             object-fit: cover;
             display   : block;
-
-            @media screen and (max-width: 1199px) {
-                max-height: 550px;
-            }
-
-            @media screen and (max-width: 767px) {
-                max-height: 400px;
-            }
         }
     }
 

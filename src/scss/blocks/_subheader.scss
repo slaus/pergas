@@ -7,8 +7,13 @@
     padding      : clamp(30px, 4vw, 50px) clamp(20px, 4vw, 35px);
     color        : var(--white);
     min-height   : calc(100vh - var(--bs-gutter-x));
+    min-height: 42vh;
     position     : relative;
     overflow     : hidden;
+
+    &--small {
+      min-height: 42vh;
+    }
 
     &:after {
       content: "";
