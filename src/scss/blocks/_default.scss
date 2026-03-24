@@ -42,7 +42,7 @@ body.menu-open {
 		left      : 0;
 		top       : 0;
 		background: var(--white);
-		z-index   : 1;
+		z-index   : 10;
 		opacity   : 0;
 	}
 }
@@ -83,6 +83,8 @@ img {
 	border-radius  : 8px;
 	backdrop-filter: blur(40px);
 	font-size      : clamp(13px, 2vw, 18px);
+	border: none;
+	transition: all .3s ease .3s;
 
 	img {
 		transition: all .3s ease .3s;

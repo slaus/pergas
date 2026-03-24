@@ -56,7 +56,7 @@
         }
 
         &:last-child {
-            width: calc(33% - 2rem);
+            width: calc(33.3333% - 1.5rem);
 
             @media screen and (max-width: 1199px) {
                 width: calc(33% - 1rem);
