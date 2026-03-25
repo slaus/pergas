@@ -1,0 +1,27 @@
+.faq {
+
+    &__area {
+        position: relative;
+    }
+
+    &__block {
+        flex : 0 0 auto;
+        width: calc(33.3333% - 2rem);
+
+        @media screen and (max-width: 1199px) {
+            width: calc(50% - 1rem);
+        }
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--light-blue);
+        }
+    }
+}
