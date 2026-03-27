@@ -43,7 +43,7 @@
       }
 
       &:after {
-        background: var(--black);
+        // background: var(--black);
         opacity: .35;
         transition: all .3s ease-in-out .3s;
       }
@@ -71,7 +71,7 @@
       // background: var(--blue);
       background: linear-gradient(to bottom, #082d535d 0%, #082d53b2 50%, var(--blue) 100%);
       display   : block;
-      opacity   : .85;
+      opacity   : 1;
       transition: all .3s ease-in-out .3s;
     }
   }
